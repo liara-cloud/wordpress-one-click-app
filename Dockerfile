@@ -7,6 +7,6 @@ RUN curl -fsSL 'https://downloads.ioncube.com/loader_downloads/ioncube_loaders_l
   && rm -Rf ioncube.tar.gz ioncube \
   && docker-php-ext-enable ioncube_loader_lin_7.2
 
-ENV PHP_INI_CONFIG
+ENV PHP_INI_CONFIG=""
 
 RUN echo $PHP_INI_CONFIG > /usr/local/etc/php/conf.d/liara_php.ini
