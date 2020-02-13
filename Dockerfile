@@ -9,4 +9,4 @@ RUN curl -fsSL 'https://downloads.ioncube.com/loader_downloads/ioncube_loaders_l
 
 ENV PHP_INI_CONFIG=""
 
-RUN echo $PHP_INI_CONFIG > /usr/local/etc/php/conf.d/liara_php.ini
+ONBUILD RUN echo $PHP_INI_CONFIG > /usr/local/etc/php/conf.d/liara_php.ini
