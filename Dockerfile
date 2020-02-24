@@ -5,7 +5,9 @@ RUN curl -fsSL 'https://downloads.ioncube.com/loader_downloads/ioncube_loaders_l
   && tar -xvvzf ioncube.tar.gz \
   && mv ioncube/ioncube_loader_lin_7.2.so `php-config --extension-dir` \
   && rm -Rf ioncube.tar.gz ioncube \
-  && docker-php-ext-enable ioncube_loader_lin_7.2
+  && docker-php-ext-enable ioncube_loader_lin_7.2 \
+  && apt-get install -y --no-install-recommends libxml2-dev libxml2 libicu57 \
+  && docker-php-ext-install soap
 
 ENV PHP_INI_CONFIG=""
 
