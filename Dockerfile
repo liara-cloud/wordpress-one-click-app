@@ -12,7 +12,8 @@ RUN curl -fsSL 'https://www.sourceguardian.com/loaders/download/loaders.linux-x8
   && rm -Rf ioncube.tar.gz /tmp/ioncube \
   && docker-php-ext-enable ioncube_loader_lin_7.2 \
   && apt-get update && apt-get install -y --no-install-recommends libxml2-dev libxml2 libicu63 \
-  && docker-php-ext-install soap
+  && docker-php-ext-install soap \
+  && pecl install redis && docker-php-ext-enable redis
 
 ENV PHP_INI_CONFIG=""
 
