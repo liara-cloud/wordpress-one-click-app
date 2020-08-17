@@ -1,4 +1,4 @@
-FROM wordpress:5.4-php7.2-apache
+FROM wordpress:5.5-php7.2-apache
 
 RUN curl -fsSL 'https://www.sourceguardian.com/loaders/download/loaders.linux-x86_64.tar.gz' -o sourceguardian.tar.gz \
   && mkdir -p /tmp/sourceguardian \
