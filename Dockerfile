@@ -16,14 +16,16 @@ RUN curl -fsSL 'https://www.sourceguardian.com/loaders/download/loaders.linux-x8
   && mv /tmp/ioncube/ioncube_loader_lin_${THE_PHP_VERSION}.so `php-config --extension-dir` \
   && rm -Rf ioncube.tar.gz /tmp/ioncube \
   && docker-php-ext-enable ioncube_loader_lin_${THE_PHP_VERSION} \
-  && apt-get update && apt-get install -y --no-install-recommends vim nano git curl wget zip unzip libxml2-dev libxml2 libicu63 \
+  && apt-get update && apt-get install -y --no-install-recommends vim nano git curl wget zip unzip libxml2-dev libxml2 libicu63 libxslt-dev \
   && docker-php-ext-install soap \
   && pecl install redis && docker-php-ext-enable redis \
   && ln -sf /run/liara_php.ini /usr/local/etc/php/conf.d/liara_php.ini \
   && echo "ServerName localhost" > /etc/apache2/conf-available/servername.conf \
   && a2enconf servername \
   && docker-php-ext-install xsl \
-  && docker-php-ext-enable xsl
+  && docker-php-ext-enable xsl \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists
 
 ENV PHP_INI_CONFIG=""
 
