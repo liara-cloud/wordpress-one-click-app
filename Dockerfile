@@ -1,6 +1,6 @@
 ARG THE_PHP_VERSION
 
-FROM wordpress:5.7-php${THE_PHP_VERSION}-apache
+FROM wordpress:5-php${THE_PHP_VERSION}-apache
 
 # Ref: https://docs.docker.com/engine/reference/builder/#understand-how-arg-and-from-interact
 ARG THE_PHP_VERSION
