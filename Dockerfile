@@ -21,7 +21,9 @@ RUN curl -fsSL 'https://www.sourceguardian.com/loaders/download/loaders.linux-x8
   && pecl install redis && docker-php-ext-enable redis \
   && ln -sf /run/liara_php.ini /usr/local/etc/php/conf.d/liara_php.ini \
   && echo "ServerName localhost" > /etc/apache2/conf-available/servername.conf \
-  && a2enconf servername
+  && a2enconf servername \
+  && docker-php-ext-install xsl \
+  && docker-php-ext-enable xsl
 
 ENV PHP_INI_CONFIG=""
 
